@@ -2,9 +2,18 @@ version: 2.1
 
 jobs:
   release:
-    machine:
-      image: ubuntu-1604:202007-01
-    resource_class: medium
+    docker:
+      - image: wordpress
+        environment:
+          WORDPRESS_DB_USER: root
+          WORDPRESS_DB_PASSWORD: password
+          WORDPRESS_DB_NAME: wordpress
+
+      - image: mariadb
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: wordpress
+
     steps:
       - checkout
       - run: npm install
