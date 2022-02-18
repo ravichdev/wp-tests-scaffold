@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   release:
     docker:
-      - image: wordpress
+      - image: wordpress:php7.4-fpm
         environment:
           WORDPRESS_DB_USER: root
           WORDPRESS_DB_PASSWORD: password
