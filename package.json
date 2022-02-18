@@ -11,7 +11,8 @@
     "test": "10up-toolkit test-unit-jest",
     "clean-dist": "rm -rf ./dist",
     "test:e2e": "wp-scripts test-e2e --config=tests/e2e/jest.config.js --runInBand",
-    "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive"
+    "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive",
+    "wp-env": "wp-env"
   },
   "engines": {
     "node": ">=12.0.0"
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@wordpress/e2e-test-utils": "^6.0.1",
     "@wordpress/e2e-tests": "^3.0.5",
+    "@wordpress/env": "^4.2.1",
     "@wordpress/jest-console": "^5.0.1",
     "@wordpress/jest-puppeteer-axe": "^4.0.1",
     "10up-toolkit": "^2.1.0"

@@ -1,0 +1,25 @@
+version: 2.1
+
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:14.19.0-browsers
+        user: root
+jobs:
+  release:
+    executor: node-executor
+    steps:
+      - setup_remote_docker:
+          version: 20.10.11
+      - checkout
+      - run: npm install
+      - run: npm run wp-env start
+      - run: npm run test:e2e
+workflows:
+  version: 2
+  release:
+    jobs:
+      - release:
+          filters:
+            branches:
+              only: trunk
