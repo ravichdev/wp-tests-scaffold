@@ -7,12 +7,11 @@ module.exports = {
 	...baseConfig,
 	verbose: true,
 	rootDir: "../../",
-	// testMatch: ["<rootDir>/specs/**/*.test.js"],
 	transform: {
 		"^.+\\.[jt]sx?$":
 			"<rootDir>/node_modules/@wordpress/scripts/config/babel-transform",
 	},
-	// transformIgnorePatterns: ["node_modules"],
+	transformIgnorePatterns: ["node_modules"],
 	setupFilesAfterEnv: [
 		"<rootDir>/tests/e2e/config/setup-test-framework.js",
 		"@wordpress/jest-console",
