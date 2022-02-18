@@ -9,11 +9,13 @@ jobs:
   release:
     executor: node-executor
     steps:
-      - setup_remote_docker:
-          version: 20.10.11
       - checkout
       - run: npm install
+      # - run: rm .wp-env.json
+      # - run: cp .circleci/.wp-env.json .wp-env.json
       - run: npm run wp-env start
+      # - run: docker cp /root/project $(docker ps -aqf "name=[^tests]-wordpress"):/var/www/html/wp-content/plugins/project
+      # - run: npx wp-env run cli "wp plugin activate project"
       - run: npm run test:e2e
 workflows:
   version: 2
